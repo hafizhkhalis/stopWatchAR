@@ -17,12 +17,14 @@
         <button id="resetBtn" onclick="reset()">Reset</button>
       </div>
     </div>
-    <audio
-      id="alertSound"
-      src="Suara woi ganti (Romi) mp4.m4a"
-      preload="auto"
-    ></audio>
-    <audio id="alertSound1" src="Selesai (Romi).m4a" preload="auto"></audio>
+    <audio id="alertSound" preload="auto">
+      <source src="Suara woi ganti (Romi).m4a" type="audio/m4a" />
+      <source src="Suara woi ganti (Romi).wav" type="audio/wav" />
+    </audio>
+    <audio id="alertSound1" preload="auto">
+      <source src="Selesai (Romi).m4a" type="audio/m4a" />
+      <source src="Selesai (Romi).wav" type="audio/wav" />
+    </audio>
     <script src="main.js"></script>
   </body>
 </html>
