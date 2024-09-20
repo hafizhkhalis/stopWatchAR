@@ -26,10 +26,13 @@ function reset() {
   elapsedTime = 0;
   isRunning = false;
   display.textContent = '00:00:00:00';
+  document.body.style.backgroundColor = 'white';
 }
 
 let lastAlertTime = -1; // Menyimpan detik terakhir yang diberi alert
 let resetBackground; // Variabel untuk menyimpan timeout
+const alertSound = document.getElementById('alertSound');
+const alertSound1 = document.getElementById('alertSound1');
 
 function update() {
   const currentTime = Date.now();
@@ -47,9 +50,22 @@ function update() {
 
   display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
-  // Memeriksa apakah detik saat ini adalah kelipatan 10 dan bukan sama dengan detik sebelumnya
-  if (seconds > 0 && seconds % 20 === 0 && seconds !== lastAlertTime) {
+  // Cek jika menit adalah 1
+  if (minutes === '01') {
+    stop();
+    alertSound1.play();
     document.body.style.backgroundColor = 'red';
+    return;
+  }
+
+  // Memeriksa apakah detik saat ini adalah kelipatan 20 dan milidetik adalah 0
+  if (
+    seconds % 20 === 0 &&
+    milliseconds === '00' &&
+    seconds !== lastAlertTime
+  ) {
+    alertSound.play();
+    document.body.style.backgroundColor = 'pink';
 
     // Menghapus timeout sebelumnya jika ada
     clearTimeout(resetBackground);
