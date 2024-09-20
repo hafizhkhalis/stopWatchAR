@@ -51,7 +51,7 @@ function update() {
   display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
   // Cek jika menit adalah 1
-  if (minutes === '01') {
+  if (minutes === '04') {
     stop();
     alertSound1.play();
     document.body.style.backgroundColor = 'red';
