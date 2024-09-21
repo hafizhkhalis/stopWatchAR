@@ -21,8 +21,8 @@ function stop() {
 }
 
 function reset() {
-  isRunning = false;
   clearInterval(timer);
+  isRunning = false;
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
