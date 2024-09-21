@@ -21,7 +21,6 @@ function stop() {
 }
 
 function reset() {
-  timer = null;
   isRunning = false;
   clearInterval(timer);
   startTime = 0;
