@@ -21,13 +21,13 @@ function stop() {
 }
 
 function reset() {
-  timer = null
+  timer = null;
+  isRunning = false;
   clearInterval(timer);
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
   display.textContent = '00:00:00:00';
-  document.body.style.backgroundColor = 'white';
 }
 
 let lastAlertTime = -1; // Menyimpan detik terakhir yang diberi alert
