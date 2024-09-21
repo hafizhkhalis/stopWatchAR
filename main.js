@@ -6,7 +6,7 @@ let isRunning = false;
 
 function start() {
   if (!isRunning) {
-    startTime = Date.now() - elapsedTime;
+    //startTime = Date.now() - elapsedTime;
     timer = setInterval(update, 10);
     isRunning = true;
   }
