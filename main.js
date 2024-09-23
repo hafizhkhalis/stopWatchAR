@@ -6,7 +6,7 @@ let isRunning = false;
 
 function start() {
   if (!isRunning) {
-    //startTime = Date.now() - elapsedTime;
+    startTime = Date.now() - elapsedTime;
     timer = setInterval(update, 10);
     isRunning = true;
   }
@@ -26,6 +26,7 @@ function reset() {
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
+  lastAlertTime = -1;
   display.textContent = '00:00:00:00';
 }
 
@@ -50,7 +51,7 @@ function update() {
 
   display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
-  // Cek jika menit adalah 1
+  // Cek jika menit adalah 4
   if (minutes === '04') {
     stop();
     alertSound1.play();
@@ -60,7 +61,7 @@ function update() {
 
   // Memeriksa apakah detik saat ini adalah kelipatan 20 dan milidetik adalah 0
   if (
-    seconds % 20 === 0 &&
+    seconds % '05' === 0 &&
     milliseconds === '00' &&
     seconds !== lastAlertTime
   ) {
@@ -77,4 +78,6 @@ function update() {
 
     lastAlertTime = seconds; // Update detik terakhir yang diberi alert
   }
+
+  console.log(elapsedTime);
 }
